@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+<script type="text/javascript" src="chess.js"></script>
+<script type="text/javascript">
+    var theB;
+    function startAnimation() { 
+        var theCanvas = document.getElementById("sampleCanvas");
+        theB = new board(theCanvas); 
+        window.addEventListener("mouseup", (evt)=>{ theB.touchEnd(evt) }, false);
+        theCanvas.addEventListener("touchend", (evt)=>{ theB.touchEnd(evt) });
+        setInterval( (evt)=>{ theB.redraw() }, 100);  
+    }
+</script>
+</head>
+<body onLoad="startAnimation();">
+    <center>
+        <canvas id="sampleCanvas" width="430" height="430"></canvas>
+        <br>
+        My chess program is pretty, and pretty stupid.
+    </center>
+</body>
+</html>
